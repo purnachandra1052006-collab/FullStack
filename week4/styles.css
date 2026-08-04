@@ -1,0 +1,89 @@
+/* 1. Base Reset to clear default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    color: #0F172A;
+    background-color: #F8FAFC;
+    padding: 3px;
+}
+
+.navibar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.base {
+
+    background-color: #0F172A;
+    color: #F8FAFC;
+    padding: 10px;
+}
+
+.nav-links a {
+  color: #0F172A;
+  text-decoration: none; 
+  font-size: 18px; 
+}
+
+.nav-links a:hover {
+  color: #ffcc00; 
+}
+
+.flex-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:10px;
+}
+
+.flex-home{
+    flex:2;
+    margin:20px;
+    padding:40px 10px;
+    border: 2px solid #0B0D17;
+    border-radius: 7px;
+    background-color: #334155;
+    color:#ffffff
+}
+
+.flex-sup{
+    flex:1;
+    margin:20px 10px;
+    padding:40px 10px;
+    background-color: #F1F5F9;
+    color:#0F172A;
+    border-radius: 7px;
+}
+
+.flex-items form > div {
+    margin:5px;
+}
+
+footer{
+    background-color: #0F172A;
+    color:#94A3B8;
+}
+
+.btn-submit-accent {
+  background-color: #2563EB;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit-accent:hover {
+  background-color: #1D4ED8;
+}
