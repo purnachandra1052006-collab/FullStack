@@ -1,0 +1,66 @@
+/*  1. FLEXBOX DEMONSTRATION  */
+        .flex-container {
+            /* Enables Flexbox */
+            display: flex; 
+            
+            /* Lays children out in a row */
+            flex-direction: row; 
+            
+            /* Spaces items evenly, pushing the outer items to the edges */
+            justify-content: space-between; 
+            
+            /* Centers items vertically relative to the container's height */
+            align-items: center; 
+            
+            /* Easily adds space between the flex items */
+            gap: 20px; 
+            
+            /* Visual styling (not layout specific) */
+            background-color: #dbeafe;
+            border: 2px dashed #3b82f6;
+            padding: 20px;
+            height: 150px; 
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .flex-item {
+            background-color: #2563eb;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /*  2. CSS GRID DEMONSTRATION */
+        .grid-container {
+            /* Enables CSS Grid */
+            display: grid; 
+            
+            /* Creates 3 columns of equal width (1 fraction each) */
+            grid-template-columns: repeat(3, 1fr); 
+            
+            /* Creates 2 rows, each exactly 100px tall */
+            grid-template-rows: 100px 100px; 
+            
+            /* Adds spacing between both rows and columns */
+            gap: 15px; 
+            
+            /* Visual styling */
+            background-color: #dcfce7;
+            border: 2px dashed #22c55e;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .grid-item {
+            background-color: #16a34a;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+            
+            /* We can also use Flexbox INSIDE a grid item just to center the text! */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
