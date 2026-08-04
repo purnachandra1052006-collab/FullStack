@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Dynamic Webpage</title>
+    <!-- Linking CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+        <h1>Dynamic Web Page</h1>
+
+        <!-- Section 1: Dynamic Counter -->
+        <div class="card">
+            <h2>1. Counter App</h2>
+            <p>Current Count: <span id="count-number">0</span></p>
+            <button onclick="increaseCount()">Increase (+1)</button>
+            <button onclick="decreaseCount()">Decrease (-1)</button>
+            <button onclick="resetCount()">Reset</button>
+        </div>
+
+
+        <!-- Section 2: Adding items to a list using DOM -->
+        <div class="card">
+            <h2>2. Simple To-Do List</h2>
+            <input type="text" id="userInput" placeholder="Type something here...">
+            <button onclick="addItem()"> Add Item </button>
+            <ul id="myList">
+                <!-- Items will be added here dynamically -->
+            </ul>
+        </div>
+</body>
+
+</html>
