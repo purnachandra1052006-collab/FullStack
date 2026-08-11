@@ -38,7 +38,16 @@ s1.display();
 
 // Multi-Level Inheritance
 class GradStudent extends Student{
-    constructor(name,year,gpa,branch,hird_company) {
-        
+    constructor(name,year,gpa,branch,hired_company) {
+        super(name,year,gpa,branch)
+        this.hired_company=hired_company;
+    }
+
+    display(){
+        super.display();
+        console.log(this.hired_company);
     }
 }
+
+const g1=new GradStudent("Purna","2006","9","CSM","Infosys");
+g1.display();
