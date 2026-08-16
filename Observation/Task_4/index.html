@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="todo-container">
+    <h1>My To-Do List</h1>
+
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Enter a task..." />
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <!-- Container for dynamic task elements -->
+    <ul id="taskList"></ul>
+
+    <!-- Empty state message -->
+    <p id="emptyMessage" class="empty-message">No tasks available.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
