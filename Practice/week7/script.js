@@ -21,3 +21,8 @@ fs.appendFile('append.txt', appended_data, err =>{
     console.log("The File is Appended");
 })
 
+// Delete a File
+fs.unlink('delete.txt', err =>{
+    if (err) throw error;
+    console.log("The delete.txt is Deleted");
+})
