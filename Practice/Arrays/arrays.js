@@ -20,8 +20,6 @@ console.log(cars);
 // Sample program on Arrays
 let scores = [85, 92, 78, 90, 88];
 
-console.log(`Total Sum: ${sum}`);
-console.log(`Average Score: ${average}`);
 
 // Sort an Array
 console.log(scores.sort());
@@ -41,3 +39,5 @@ for (let i = 0; i < scores.length; i++) {
 }
 
 let average = sum / scores.length;
+console.log(`Total Sum: ${sum}`);
+console.log(`Average Score: ${average}`);

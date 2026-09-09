@@ -17,7 +17,6 @@ class Person{
 
 const p1 = new Person("charan", "2006");
 p1.display();
-console.log(p1.age());
 
 class Student extends Person{
     constructor(name,year,gpa,branch) {
@@ -34,6 +33,7 @@ class Student extends Person{
 }
 
 const s1=new Student("Purna","2006","9","CSM");
+console.log("Single Inheritance\n");
 s1.display();
 
 // Multi-Level Inheritance
@@ -50,4 +50,5 @@ class GradStudent extends Student{
 }
 
 const g1=new GradStudent("Purna","2006","9","CSM","Infosys");
+console.log("Multi-Level Inheritance\n");
 g1.display();
