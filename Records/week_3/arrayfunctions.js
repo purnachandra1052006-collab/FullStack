@@ -8,7 +8,7 @@ function addNumber(num) {
 }
 
 function displayAll() {
-    console.log("\nNumbers:", numbers.join(" | "));
+    console.log("\nNumbers:", numbers.join(" | "),"\n");
 }
 
 function getSum() {
@@ -16,32 +16,36 @@ function getSum() {
     for (let i = 0; i < numbers.length; i++) {
         sum += numbers[i];
     }
-    console.log(`Sum = ${sum}`);
+    console.log(`Sum = ${sum}\n`);
     return sum;
 }
 
 function getAverage() {
-    if (numbers.length === 0) return 0;
+    if (numbers.length === 0) {
+        console.log("Average = 0\n");
+        return 0;
+    }
     let sum = getSum();
     let avg = sum / numbers.length;
-    console.log(`Average = ${avg.toFixed(2)}`);
+    console.log(`Average = ${avg.toFixed(2)}\n`);
     return avg;
 }
+
 
 function removeNumber(num) {
     let idx = numbers.indexOf(num);
     if (idx !== -1) {
         numbers.splice(idx, 1);
-        console.log(`Removed: ${num}`);
+        console.log(`Removed: ${num}\n`);
     } else {
-        console.log(`${num} not found`);
+        console.log(`${num} not found\n`);
     }
 }
 
 
 function clearAll() {
     numbers = [];
-    console.log("Cleared all numbers");
+    console.log("Cleared all numbers\n");
 }
 
 
@@ -52,11 +56,19 @@ addNumber(6);
 addNumber(22);
 
 displayAll();
+
 getSum();
+
 getAverage();
 
 removeNumber(15);
+
 displayAll();
+
+removeNumber(99);
+displayAll()
 
 clearAll();
 displayAll();
+
+getAverage();

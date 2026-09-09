@@ -1,3 +1,4 @@
+/* Minimal Reset & Centered Layout */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,106 +7,113 @@
 }
 
 body {
-  background-color: #f7f7f8;
-  color: #1a1a1a;
+  background-color: #f8f9fa;
+  color: #212529;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
 }
 
-.container {
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  max-width: 720px;
-}
-
-.card {
-  flex: 1;
+.todo-container {
   background: #ffffff;
-  padding: 28px;
-  border-radius: 12px;
-  border: 1px solid #e5e5e7;
-}
-
-h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #111111;
-}
-
-.field {
-  margin-bottom: 16px;
-}
-
-label, .label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #6e6e73;
-  margin-bottom: 6px;
-}
-
-input {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   width: 100%;
-  padding: 10px 12px;
-  font-size: 0.9rem;
-  border: 1px solid #d2d2d7;
-  border-radius: 6px;
-  outline: none;
-  transition: border-color 0.15s ease;
+  max-width: 480px;
 }
 
-input:focus {
-  border-color: #0066cc;
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Area */
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #4da6ff;
 }
 
 button {
-  width: 100%;
-  margin-top: 8px;
-  padding: 10px;
-  background-color: #111111;
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 500;
+  padding: 0.6rem 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: opacity 0.2s;
 }
 
 button:hover {
-  background-color: #333333;
+  opacity: 0.85;
 }
 
-.display-card {
-  background-color: #fafafa;
+#addTaskBtn {
+  background-color: #0066cc;
+  color: white;
 }
 
-.info-group {
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eeeeef;
+/* Task List Items */
+ul {
+  list-style: none;
 }
 
-.info-group:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e9ecef;
+  gap: 0.5rem;
 }
 
-.value {
+.task-text {
+  flex: 1;
   font-size: 0.95rem;
-  font-weight: 500;
-  color: #1d1d1f;
+  word-break: break-word;
 }
 
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-  }
+/* Visual state for completed tasks */
+.completed .task-text {
+  text-decoration: line-through;
+  color: #868e96;
+}
+
+/* Action Buttons */
+.btn-group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.complete-btn {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.delete-btn {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+/* Empty State Message */
+.empty-message {
+  color: #868e96;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="container">
+    <!-- Input Form -->
+    <section class="card">
+      <h2>Enter Student Details</h2>
+      <form id="student-form" onsubmit="event.preventDefault();">
+        <div class="field">
+          <label for="iname">Full Name</label>
+          <input type="text" id="iname" placeholder="e.g. Ramu" />
+        </div>
+
+        <div class="field">
+          <label for="irn">Roll Number</label>
+          <input type="text" id="irn" placeholder="e.g. 101" />
+        </div>
+
+        <div class="field">
+          <label for="idept">Department</label>
+          <input type="text" id="idept" placeholder="e.g. Computer Science" />
+        </div>
+
+        <div class="field">
+          <label for="icgpa">CGPA</label>
+          <input type="number" id="icgpa" step="0.01" min="0" max="10" placeholder="e.g. 8.9" />
+        </div>
+
+        <button type="button" onclick="display(createstu())">Submit</button>
+      </form>
+    </section>
+
+    <!-- Output Display -->
+    <section class="card display-card">
+      <h2>Student Details</h2>
+      <div class="info-group">
+        <span class="label">Name</span>
+        <span id="uname" class="value">—</span>
+      </div>
+      <div class="info-group">
+        <span class="label">Roll No</span>
+        <span id="urn" class="value">—</span>
+      </div>
+      <div class="info-group">
+        <span class="label">Department</span>
+        <span id="udept" class="value">—</span>
+      </div>
+      <div class="info-group">
+        <span class="label">CGPA</span>
+        <span id="ucgpa" class="value">—</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

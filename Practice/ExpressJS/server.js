@@ -13,6 +13,7 @@ server.get('/about',(req,res)=>{
 server.get('/contact',(req,res)=>{
     res.send("Contact me!")
 });
+
 server.listen(3000, ()=>{
     console.log("The Server is working");
 });
