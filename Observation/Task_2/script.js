@@ -1,25 +1,40 @@
+// Student class to create Student objects
 class Student {
+
+    // Constructor initializes student properties
     constructor(name, rn, dept, cgpa) {
-        this.name = name;
-        this.rn = rn;
-        this.dept = dept;
-        this.cgpa = cgpa;
+        this.name = name;   
+        this.rn = rn;       
+        this.dept = dept;   
+        this.cgpa = cgpa;   
     }
 }
 
+// Function to create a Student object from user input
 function createstu() {
-    let name = document.getElementById("iname").value;
-    let rn = document.getElementById("irn").value;
-    let dept = document.getElementById("idept").value;
-    let cgpa = document.getElementById("icgpa").value;
-    
-    const stu = new Student(name, rn, dept, cgpa);
-    return stu;
+
+    // Get values entered in the form
+    const name = document.getElementById("iname").value;
+    const rn = document.getElementById("irn").value;
+    const dept = document.getElementById("idept").value;
+    const cgpa = document.getElementById("icgpa").value;
+
+    // Create and return a new Student object
+    return new Student(name, rn, dept, cgpa);
 }
 
+// Function to display student details on the webpage
 function display(stu) {
-    document.getElementById("uname").innerText = stu.name;
-    document.getElementById("urn").innerText = stu.rn;
-    document.getElementById("udept").innerText = stu.dept;
-    document.getElementById("ucgpa").innerText = stu.cgpa;
+    document.getElementById("uname").textContent = stu.name;
+    document.getElementById("urn").textContent = stu.rn;
+    document.getElementById("udept").textContent = stu.dept;
+    document.getElementById("ucgpa").textContent = stu.cgpa;
+}
+
+// Function called when Submit button is clicked
+function submitStudent() {
+    // Create Student object using input values
+    const stu = createstu();
+    // Display the student's details
+    display(stu);
 }

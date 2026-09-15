@@ -104,6 +104,7 @@ button:hover {
   color: #1d1d1f;
 }
 
+
 @media (max-width: 600px) {
   .container {
     flex-direction: column;
