@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation</title>
+</head>
+<body>
+
+    <h2 id="heading">Student Information</h2>
+
+    <p id="message">Click the button to change this content.</p>
+
+    <img id="image" src="old.jpg" width="200">
+
+    <br><br>
+
+    <button onclick="changeContent()">Change Content</button>
+    <button onclick="changeStyle()">Change Style</button>
+    <button onclick="changeAttribute()">Change Attribute</button>
+    <button onclick="addElement()">Add Element</button>
+
+    <script>
+
+        function changeContent() {
+            document.getElementById("heading").innerHTML = "Welcome Students";
+            document.getElementById("message").innerHTML =
+                "Content changed using the DOM.";
+        }
+
+        function changeStyle() {
+            document.getElementById("heading").style.color = "blue";
+            document.getElementById("heading").style.backgroundColor = "lightgray";
+            document.getElementById("message").style.fontSize = "20px";
+        }
+
+        function changeAttribute() {
+            document.getElementById("image").src = "new.jpg";
+            document.getElementById("image").width = 300;
+        }
+
+        function addElement() {
+            let p = document.createElement("p");
+            p.innerHTML = "This paragraph was created using JavaScript.";
+            document.body.appendChild(p);
+        }
+
+    </script>
+
+</body>
+</html>

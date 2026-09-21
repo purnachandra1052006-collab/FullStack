@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Calculator</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    /* Card container */
+    .calculator {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .calculator-header {
+      background: #1e3a5f;
+      color: #ffffff;
+      padding: 20px 24px;
+    }
+
+    .calculator-header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .calculator-header p {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    /* Form body */
+    .calculator-body {
+      padding: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      background: #fafbfc;
+      color: #1a1a1a;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #1e3a5f;
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+      background: #ffffff;
+    }
+
+    .form-group input::placeholder {
+      color: #9ca3af;
+    }
+
+    /* Two-column layout for quantity & price */
+    .row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .row .form-group {
+      flex: 1;
+    }
+
+    /* Result section */
+    .result {
+      margin-top: 8px;
+      padding: 16px 18px;
+      background: #f0f7ff;
+      border: 1px solid #c5dbf5;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .result-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #334155;
+    }
+
+    .result-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1e3a5f;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Subtle note */
+    .note {
+      margin-top: 16px;
+      font-size: 0.75rem;
+      color: #8892a0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <div class="calculator-header">
+      <h1>Product Calculator</h1>
+      <p>Enter details below</p>
+    </div>
+
+    <div class="calculator-body">
+      <!-- Product name field -->
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input
+          type="text"
+          id="productName"
+          placeholder="e.g. Wireless Mouse"
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Quantity and unit price side by side -->
+      <div class="row">
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input
+            type="number"
+            id="quantity"
+            min="0"
+            step="1"
+            value="1"
+            placeholder="0"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="price">Unit Price (₹)</label>
+          <input
+            type="number"
+            id="price"
+            min="0"
+            step="0.01"
+            value="0.00"
+            placeholder="0.00"
+          >
+        </div>
+      </div>
+
+      <!-- Live total display -->
+      <div class="result">
+        <span class="result-label">Total Price</span>
+        <span class="result-value" id="totalDisplay">₹0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Grab references to the input fields and the total display element
+    const productNameInput = document.getElementById("productName");
+    const quantityInput = document.getElementById("quantity");
+    const priceInput = document.getElementById("price");
+    const totalDisplay = document.getElementById("totalDisplay");
+
+    /**
+     * Calculates the total price based on quantity and unit price.
+     * Returns a number (0 if either value is invalid or missing).
+     */
+    function calculateTotal() {
+      // Convert input values to numbers; treat empty/invalid as 0
+      const quantity = parseFloat(quantityInput.value) || 0;
+      const unitPrice = parseFloat(priceInput.value) || 0;
+
+      // Ensure we never show negative totals
+      const total = Math.max(0, quantity * unitPrice);
+
+      return total;
+    }
+
+    /**
+     * Formats a number as currency (₹) and updates the DOM.
+     * Called whenever quantity or price changes.
+     */
+    function updateTotalDisplay() {
+      const total = calculateTotal();
+
+      // Format with two decimal places and a rupee sign
+      totalDisplay.textContent = "₹" + total.toFixed(2);
+    }
+
+    // Listen for any change (typing, arrow keys, paste, etc.) on quantity
+    quantityInput.addEventListener("input", updateTotalDisplay);
+
+    // Same for the unit price field
+    priceInput.addEventListener("input", updateTotalDisplay);
+
+    // Optional: also recalculate if the user leaves a field (blur)
+    // This covers edge cases where "input" might not fire in some browsers
+    quantityInput.addEventListener("change", updateTotalDisplay);
+    priceInput.addEventListener("change", updateTotalDisplay);
+
+    // Run once on page load so the display starts correct
+    // (in case default values are already set)
+    updateTotalDisplay();
+  </script>
+
+</body>
+</html>
