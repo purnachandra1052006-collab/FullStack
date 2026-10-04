@@ -1,0 +1,16 @@
+{
+  "name": "college-db-mongodb",
+  "version": "1.0.0",
+  "description": "Student Information Management System using Node.js and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "demo": "node app.js --demo"
+  },
+  "dependencies": {
+    "mongodb": "^6.14.0"
+  },
+  "keywords": ["mongodb", "database", "students", "nodejs"],
+  "author": "",
+  "license": "ISC"
+}
