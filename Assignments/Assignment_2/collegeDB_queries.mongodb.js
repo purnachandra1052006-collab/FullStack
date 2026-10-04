@@ -157,17 +157,9 @@ db.students.getIndexes();
 print("--- EXPLAIN PLAN AFTER INDEXING (IXSCAN) ---");
 db.students.find({ rollNo: "23CM001" }).explain("executionStats");
 
-/*
- * WHY INDEXING IS USEFUL:
- * 1. Without Index (COLLSCAN): MongoDB scans EVERY document in the collection from start to finish
- *    (totalDocsExamined = total documents in collection).
- * 2. With Index (IXSCAN): MongoDB uses a B-Tree data structure to jump directly to the key
- *    (totalDocsExamined = 1, totalKeysExamined = 1).
- * 3. Scalability: For millions of student records, indexed search takes < 1ms vs seconds of disk I/O.
- */
 
 // ==============================================================================
-// 8. REAL-TIME EXTENSION ⭐ (Analytical Queries)
+// 8. REAL-TIME EXTENSION 
 // ==============================================================================
 
 // Query 1: Find students scoring above 80
