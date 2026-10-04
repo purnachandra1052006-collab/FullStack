@@ -151,29 +151,26 @@ db.students.getIndexes();
 print("--- EXPLAIN PLAN AFTER INDEXING (IXSCAN) ---");
 db.students.find({ rollNo: "23CM001" }).explain("executionStats");
 
-
-// ==============================================================================
-// 8. REAL-TIME EXTENSION 
-// ==============================================================================
+//Queries
 
 // Query 1: Find students scoring above 80
-print("--- EXTENSION: STUDENTS SCORING ABOVE 80 ---");
+print("--- STUDENTS SCORING ABOVE 80 ---");
 db.students.find({ marks: { $gt: 80 } }).pretty();
 
 // Query 2: Find students scoring below 50 (need academic support)
-print("--- EXTENSION: STUDENTS SCORING BELOW 50 ---");
+print("--- STUDENTS SCORING BELOW 50 ---");
 db.students.find({ marks: { $lt: 50 } }).pretty();
 
 // Query 3: Find the highest-scoring student (Topper)
-print("--- EXTENSION: HIGHEST-SCORING STUDENT ---");
+print("--- HIGHEST-SCORING STUDENT ---");
 db.students.find().sort({ marks: -1 }).limit(1).pretty();
 
 // Query 4: Find students belonging to a particular branch (e.g. 'CSE')
-print("--- EXTENSION: CSE BRANCH STUDENTS ---");
+print("--- CSE BRANCH STUDENTS ---");
 db.students.find({ branch: "CSE" }).pretty();
 
 // Query 5: Display students sorted according to marks (ascending / descending)
-print("--- EXTENSION: ALL STUDENTS SORTED BY MARKS (HIGH TO LOW) ---");
+print("--- ALL STUDENTS SORTED BY MARKS (HIGH TO LOW) ---");
 db.students.find({}, { _id: 0, rollNo: 1, name: 1, branch: 1, marks: 1 }).sort({ marks: -1 }).pretty();
 
 // Query 6 (Bonus Aggregation): Branch-wise average marks & student count
