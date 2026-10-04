@@ -1,9 +1,3 @@
-// ==============================================================================
-// MongoDB Student Information System
-// Database: collegeDB
-// Collection: students
-// ==============================================================================
-
 // 1. Switch to (or create) database
 use("collegeDB");
 
