@@ -9,7 +9,7 @@
 
     <p id="message">Click the button to change this content.</p>
 
-    <img id="image" src="old.jpg" width="200">
+    <img id="image" src="old.jpeg" width="200">
 
     <br><br>
 
@@ -19,7 +19,6 @@
     <button onclick="addElement()">Add Element</button>
 
     <script>
-
         function changeContent() {
             document.getElementById("heading").innerHTML = "Welcome Students";
             document.getElementById("message").innerHTML =
@@ -33,7 +32,7 @@
         }
 
         function changeAttribute() {
-            document.getElementById("image").src = "new.jpg";
+            document.getElementById("image").src = "new.jpeg";
             document.getElementById("image").width = 300;
         }
 
@@ -42,7 +41,6 @@
             p.innerHTML = "This paragraph was created using JavaScript.";
             document.body.appendChild(p);
         }
-
     </script>
 
 </body>
