@@ -1,14 +1,9 @@
-
-
 // Import built-in Node.js modules
 const os = require("os");
 const path = require("path");
 const fs = require("fs");
 
-
-// -----------------------------------
 // 1. OS MODULE
-// -----------------------------------
 
 console.log("=== OS MODULE DETAILS ===");
 
@@ -31,9 +26,7 @@ console.log("System Uptime:", os.uptime());
 console.log("Current User:", os.userInfo().username);
 
 
-// -----------------------------------
 // 2. PATH MODULE
-// -----------------------------------
 
 console.log("\n=== PATH MODULE DETAILS ===");
 
@@ -52,26 +45,25 @@ console.log("Parsed Path Object:", parsedPath);
 console.log("Reconstructed Path:", path.format(parsedPath));
 
 
-// -----------------------------------
+
 // 3. FS MODULE
-// -----------------------------------
 
 console.log("\n=== FS MODULE DETAILS ===");
 
 // Write content to a file
-fs.writeFileSync(sampleFile, "Hello, Node.js!\nThis is a detailed FS module demonstration.");
+fs.writeFileSync("sampleFile.txt", "Hello, Node.js!\nThis is a detailed FS module demonstration.");
 console.log("File created and initial content written.");
 
 // Append additional content
-fs.appendFileSync(sampleFile, "\nAppended Line: Learning file sync operations.");
+fs.appendFileSync("sampleFile.txt", "\nAppended Line: Learning file sync operations.");
 console.log("Content appended to file.");
 
 // Read file contents
-let fileData = fs.readFileSync(sampleFile, "utf8");
+let fileData = fs.readFileSync("sampleFile.txt", "utf8");
 console.log("\n--- File Contents ---");
 console.log(fileData);
 
 
 // Clean up created file and directory
-fs.unlinkSync(sampleFile);
+fs.unlinkSync("sampleFile.txt");
 

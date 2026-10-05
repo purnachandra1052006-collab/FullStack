@@ -1,18 +1,16 @@
-// -------------------------------
 // Example of a JavaScript Function
-// -------------------------------
+
 
 function add(a, b) {
     // Function performs a specific task
     return a + b;
 }
 
-console.log("Sum:", add(10, 20));
+console.log("Sum:", add(10, 20),"\n");
 
+console.log("Sum:", add(5, 15),"\n");
 
-// -------------------------------
 // Example of a JavaScript Class
-// -------------------------------
 
 class Student {
 
