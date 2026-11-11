@@ -1,0 +1,69 @@
+### Student Management System API Test Requests (REST Client / VS Code)
+
+@baseUrl = http://localhost:5000/api/students
+
+### 1. Root API Health Check
+GET http://localhost:5000/
+
+### 2. Add New Student (Alice)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "studentId": "STU1001",
+  "name": "Alice Johnson",
+  "email": "alice.johnson@example.com",
+  "course": "Computer Science",
+  "age": 20,
+  "gpa": 3.85
+}
+
+### 3. Add Another Student (Bob)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "studentId": "STU1002",
+  "name": "Bob Smith",
+  "email": "bob.smith@example.com",
+  "course": "Electrical Engineering",
+  "age": 22,
+  "gpa": 3.40
+}
+
+### 4. View All Students
+GET {{baseUrl}}
+
+### 5. Filter Students by Course
+GET {{baseUrl}}?course=Computer Science
+
+### 6. Search Students by keyword
+GET {{baseUrl}}?search=Alice
+
+### 7. View Single Student by studentId or _id
+# Replace with actual studentId or MongoDB _id
+GET {{baseUrl}}/STU1001
+
+### 8. Update Student (Full or Partial)
+PUT {{baseUrl}}/STU1001
+Content-Type: application/json
+
+{
+  "gpa": 3.95,
+  "course": "Data Science"
+}
+
+### 9. Delete Student
+DELETE {{baseUrl}}/STU1001
+
+### 10. Test Validation Error (Invalid Email & Negative Age)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "studentId": "STU9999",
+  "name": "Invalid Student",
+  "email": "not-an-email",
+  "course": "Physics",
+  "age": -5
+}
